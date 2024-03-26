@@ -1,13 +1,18 @@
 /* nejsme vcerejsi, pouzivame moderni box model */
-html { 
-  box-sizing: border-box; 
+html {
+  box-sizing: border-box;
 }
-*, :after, :before { box-sizing: inherit; }
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
 
 body {
-  margin: 10px;
-	font-family: sans-serif;
-	font-size: 14px;
+  margin: 20px;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 .header__title {
@@ -18,11 +23,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .team__member-card {
   text-align: center;
   border: 1px solid rgb(136, 135, 135);
+  box-shadow: 0 1px 2px rgba(69, 245, 236, 0.766);
   border-radius: 5px;
   padding: 20px;
 }
@@ -30,4 +37,43 @@ body {
 .team__member-photo {
   border-radius: 50%;
 }
+
+@media (min-width: 540px) {
+  .team {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .team__member-card {
+    text-align: left;
+    max-width: calc(50% - 10px);
+    display: flex;
+  }
+
+  .team__member-photo {
+    margin-right: 20px;
+    max-width: 30%;
+    height: fit-content;
+  }
+}
+
+@media (min-width: 960px) {
+  .team {
+    flex-wrap: nowrap;
+  }
+
+  .team__member-card {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: calc(25% - 15px);
+  }
+
+  .team__member-photo {
+    margin-right: 0;
+    max-width: fit-content;
+    max-height: 50%;
+  }
+}
+
 /* ---------------------------------------------------- */
